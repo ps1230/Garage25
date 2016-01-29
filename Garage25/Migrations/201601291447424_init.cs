@@ -3,7 +3,7 @@ namespace Garage25.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class init1500 : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -14,6 +14,8 @@ namespace Garage25.Migrations
                         MemberId = c.Int(nullable: false, identity: true),
                         Surname = c.String(),
                         Lastname = c.String(),
+                        Address = c.String(),
+                        TelephoneNo = c.String(),
                     })
                 .PrimaryKey(t => t.MemberId);
             
