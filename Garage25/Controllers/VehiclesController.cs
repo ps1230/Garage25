@@ -39,6 +39,8 @@ namespace Garage25.Controllers
         // GET: Vehicles/Create
         public ActionResult Create()
         {
+            ViewBag.TypeId = new SelectList(db.VehicleTypes, "VehicleTypeId", "Type");
+                
             return View();
         }
 
@@ -51,6 +53,7 @@ namespace Garage25.Controllers
         {
             if (ModelState.IsValid)
             {
+                var type = vehicle.VehicleType;
                 db.Vehicles.Add(vehicle);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -71,11 +74,7 @@ namespace Garage25.Controllers
             {
                 return HttpNotFound();
             }
-            var types = db.VehicleTypes.ToList();
-            VehicleModel vehicles = new VehicleModel();
-            vehicles.Vehicle = vehicle;
-            vehicles.VehicleTypes = db.VehicleTypes.ToList();
-            return View(vehicles);
+            return View(vehicle);
         }
 
         // POST: Vehicles/Edit/5

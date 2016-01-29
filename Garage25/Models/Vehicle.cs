@@ -15,6 +15,7 @@ namespace Garage25.Model
         public int WheelCount { get; set; }
         public DateTime ParkTime { get; set; }
 
+        public virtual Member Member { get; set; }
         public virtual VehicleType VehicleType { get; set; }
     }
 }
