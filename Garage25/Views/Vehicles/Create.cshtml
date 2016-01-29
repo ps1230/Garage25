@@ -16,17 +16,17 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.VehicleType.Type, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.VehicleTypeId, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.VehicleType.VehicleTypeId, (SelectList)ViewBag.TypeId, new { @class = "form-control"})
-                @Html.ValidationMessageFor(model => model.VehicleType, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.VehicleTypeId, (SelectList)ViewBag.TypeId, new { @class = "form-control"})
+                @Html.ValidationMessageFor(model => model.VehicleTypeId, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Member.MemberId, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Member, (SelectList)ViewBag.NameId, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Member, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.MemberId, (SelectList)ViewBag.NameId, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MemberId, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
@@ -62,7 +62,6 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ParkTime, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.HiddenFor(model => model.ParkTime, new { @Value = DateTime.Now } )
                 @Html.ValidationMessageFor(model => model.ParkTime, "", new { @class = "text-danger" })

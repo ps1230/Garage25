@@ -39,15 +39,17 @@ namespace Garage25.Controllers
         // GET: Vehicles/Create
         public ActionResult Create()
         {
-            //var members = db.Members.ToList();
-            //List<SelectListItem> list = new List<SelectListItem>();
-            //foreach (var item in members)   
-            //{
-		        
-            //}
+            var members = db.Members.ToList();
+            List<SelectListItem> list = new List<SelectListItem>();
+            foreach (var item in members)
+            {
+                list.Add(new SelectListItem 
+                    { Value = item.MemberId.ToString(),
+                      Text = (item.Surname + " " + item.Lastname) });
+            }
 
-            //ViewBag.Nameid = new SelectList();
-            //ViewBag.TypeId = new SelectList(db.VehicleTypes, "VehicleTypeId", "Type");
+            ViewBag.Nameid = new SelectList(list);
+            ViewBag.TypeId = new SelectList(db.VehicleTypes, "VehicleTypeId", "Type");
                 
             return View();
         }
@@ -57,7 +59,7 @@ namespace Garage25.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "VehicleId,Color,Brand,Model,NumberOfWheels,ParkingTime")] Vehicle vehicle)
+        public ActionResult Create([Bind(Include = "VehicleId,Color,Brand,Model,WheelCount,ParkTime,MemberId,VehicleTypeId")] Vehicle vehicle)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +92,7 @@ namespace Garage25.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "VehicleId,Color,Brand,Model,NumberOfWheels,ParkingTime")] Vehicle vehicle)
+        public ActionResult Edit([Bind(Include = "VehicleId,Color,Brand,Model,WheelCount,ParkTime,MemberId,VehicleTypeId")] Vehicle vehicle)
         {
             if (ModelState.IsValid)
             {

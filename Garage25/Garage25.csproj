@@ -122,17 +122,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201601290844041_InitialCreate.cs" />
-    <Compile Include="Migrations\201601290844041_InitialCreate.Designer.cs">
-      <DependentUpon>201601290844041_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601291043478_element changes.cs" />
-    <Compile Include="Migrations\201601291043478_element changes.Designer.cs">
-      <DependentUpon>201601291043478_element changes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601291307528_AddedForeignKey.cs" />
-    <Compile Include="Migrations\201601291307528_AddedForeignKey.Designer.cs">
-      <DependentUpon>201601291307528_AddedForeignKey.cs</DependentUpon>
+    <Compile Include="Migrations\201601291412313_init1500.cs" />
+    <Compile Include="Migrations\201601291412313_init1500.Designer.cs">
+      <DependentUpon>201601291412313_init1500.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\GarageContext.cs" />
@@ -196,14 +188,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201601290844041_InitialCreate.resx">
-      <DependentUpon>201601290844041_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601291043478_element changes.resx">
-      <DependentUpon>201601291043478_element changes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601291307528_AddedForeignKey.resx">
-      <DependentUpon>201601291307528_AddedForeignKey.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201601291412313_init1500.resx">
+      <DependentUpon>201601291412313_init1500.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
