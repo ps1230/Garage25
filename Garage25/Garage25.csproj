@@ -126,11 +126,16 @@
     <Compile Include="Migrations\201601290844041_InitialCreate.Designer.cs">
       <DependentUpon>201601290844041_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601291043478_element changes.cs" />
+    <Compile Include="Migrations\201601291043478_element changes.Designer.cs">
+      <DependentUpon>201601291043478_element changes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\GarageContext.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\PresentationModel.cs" />
     <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Models\VehicleModel.cs" />
     <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -189,6 +194,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201601290844041_InitialCreate.resx">
       <DependentUpon>201601290844041_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601291043478_element changes.resx">
+      <DependentUpon>201601291043478_element changes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -71,7 +71,11 @@ namespace Garage25.Controllers
             {
                 return HttpNotFound();
             }
-            return View(vehicle);
+            var types = db.VehicleTypes.ToList();
+            VehicleModel vehicles = new VehicleModel();
+            vehicles.Vehicle = vehicle;
+            vehicles.VehicleTypes = db.VehicleTypes.ToList();
+            return View(vehicles);
         }
 
         // POST: Vehicles/Edit/5
