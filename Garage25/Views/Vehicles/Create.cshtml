@@ -18,8 +18,15 @@
         <div class="form-group">
             @Html.LabelFor(model => model.VehicleType.Type, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.VehicleType, (SelectList)ViewBag.TypeId, new { @class = "form-control"})
+                @Html.DropDownListFor(model => model.VehicleType.VehicleTypeId, (SelectList)ViewBag.TypeId, new { @class = "form-control"})
                 @Html.ValidationMessageFor(model => model.VehicleType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Member.MemberId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Member, (SelectList)ViewBag.NameId, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Member, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">

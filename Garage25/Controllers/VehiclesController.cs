@@ -39,7 +39,15 @@ namespace Garage25.Controllers
         // GET: Vehicles/Create
         public ActionResult Create()
         {
-            ViewBag.TypeId = new SelectList(db.VehicleTypes, "VehicleTypeId", "Type");
+            //var members = db.Members.ToList();
+            //List<SelectListItem> list = new List<SelectListItem>();
+            //foreach (var item in members)   
+            //{
+		        
+            //}
+
+            //ViewBag.Nameid = new SelectList();
+            //ViewBag.TypeId = new SelectList(db.VehicleTypes, "VehicleTypeId", "Type");
                 
             return View();
         }

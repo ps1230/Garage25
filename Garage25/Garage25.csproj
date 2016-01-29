@@ -130,6 +130,10 @@
     <Compile Include="Migrations\201601291043478_element changes.Designer.cs">
       <DependentUpon>201601291043478_element changes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601291307528_AddedForeignKey.cs" />
+    <Compile Include="Migrations\201601291307528_AddedForeignKey.Designer.cs">
+      <DependentUpon>201601291307528_AddedForeignKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\GarageContext.cs" />
     <Compile Include="Models\Member.cs" />
@@ -197,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601291043478_element changes.resx">
       <DependentUpon>201601291043478_element changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601291307528_AddedForeignKey.resx">
+      <DependentUpon>201601291307528_AddedForeignKey.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -34,7 +34,7 @@ namespace Garage25.Migrations
             ); 
             DateTime currentTime = DateTime.Now;
             context.Vehicles.AddOrUpdate(
-                new Vehicle {RegistrationNumber= "afg134", Color ="Red", Brand="Volvo", Model="240dl", WheelCount=4, ParkTime = currentTime},
+                new Vehicle {RegistrationNumber= "afg134", Color ="Red", Brand="Volvo", Model="240dl", WheelCount=4, ParkTime = currentTime, },
                 new Vehicle { RegistrationNumber = "afg553", Color = "Blue", Brand = "BMV", Model = "4332dl", WheelCount = 4, ParkTime = currentTime },
                 new Vehicle { RegistrationNumber = "faf134", Color = "Black", Brand = "Renault", Model = "240dl", WheelCount = 4, ParkTime = currentTime },
                 new Vehicle { RegistrationNumber = "dff545", Color = "Red", Brand = "Saab", Model = "ae45dl", WheelCount = 6, ParkTime = currentTime },
