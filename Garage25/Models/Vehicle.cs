@@ -8,11 +8,12 @@ namespace Garage25.Model
     public class Vehicle
     {
         public int VehicleId { get; set; }
+        public string RegistrationNumber { get; set; }
         public string Color { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }
-        public int NumberOfWheels { get; set; }
-        public DateTime ParkingTime { get; set; }
+        public int WheelCount { get; set; }
+        public DateTime ParkTime { get; set; }
 
         public virtual VehicleType VehicleType { get; set; }
     }
