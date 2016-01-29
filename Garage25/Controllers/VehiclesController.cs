@@ -16,9 +16,25 @@ namespace Garage25.Controllers
         private GarageContext db = new GarageContext();
 
         // GET: Vehicles
-        public ActionResult Index()
+        public ActionResult Index(string searchString, string searchString2)
         {
-            return View(db.Vehicles.ToList());
+            var vehicles = from s in db.Vehicles
+                           select s;
+
+            if (!String.IsNullOrEmpty(searchString) && String.IsNullOrEmpty(searchString2))
+            {
+                vehicles = vehicles.Where(s => s.RegistrationNumber.Contains(searchString));
+            }
+            else if (!String.IsNullOrEmpty(searchString2) && String.IsNullOrEmpty(searchString))
+            {
+                vehicles = vehicles.Where(s => (s.VehicleTypeId.ToString().Contains(searchString2)));
+            }
+            else if (!String.IsNullOrEmpty(searchString) && !String.IsNullOrEmpty(searchString2))
+            {
+                vehicles = vehicles.Where(s => s.RegistrationNumber.Contains(searchString)
+                    && (s.VehicleTypeId.ToString().Contains(searchString2)) );
+            }
+            return View(vehicles.ToList());
         }
 
         // GET: Vehicles/Details/5
