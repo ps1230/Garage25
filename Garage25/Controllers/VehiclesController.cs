@@ -21,23 +21,20 @@ namespace Garage25.Controllers
             var vehicles = from s in db.Vehicles
                            select s;
 
-            //if (!String.IsNullOrEmpty(searchString) && String.IsNullOrEmpty(searchString2))
-            //{
-            //    vehicles = vehicles.Where(s => s.RegistrationNumber.Contains(searchString));
-            //}
-            //else if (!String.IsNullOrEmpty(searchString2) && String.IsNullOrEmpty(searchString))
-            //{
-            //    vehicles = vehicles.Where(s => (s.VehicleTypeId.ToString().Contains(searchString2)));
-            //}
-            //else if (!String.IsNullOrEmpty(searchString) && !String.IsNullOrEmpty(searchString2))
-            //{
-            //    vehicles = vehicles.Where(s => s.RegistrationNumber.Contains(searchString)
-            //        && (s.VehicleTypeId.ToString().Contains(searchString2)));
-            //}
-            if (!String.IsNullOrEmpty(searchString2))
+            if (!String.IsNullOrEmpty(searchString) && String.IsNullOrEmpty(searchString2))
+            {
+                vehicles = vehicles.Where(s => s.RegistrationNumber.Contains(searchString));
+            }
+            else if (!String.IsNullOrEmpty(searchString2) && String.IsNullOrEmpty(searchString))
             {
                 vehicles = vehicles.Where(s => (s.VehicleType.Type.Contains(searchString2)));
             }
+            else if (!String.IsNullOrEmpty(searchString) && !String.IsNullOrEmpty(searchString2))
+            {
+                vehicles = vehicles.Where(s => s.RegistrationNumber.Contains(searchString)
+                    && (s.VehicleType.Type.Contains(searchString2)));
+            }
+            
             return View(vehicles.ToList());
         }
 
