@@ -24,24 +24,33 @@ namespace Garage25.Migrations
             context.Members.AddOrUpdate(
               //p => p.Surname, s=>s.Lastname,
               new Member { Surname="Carson", 
-                          Lastname="Alexander" },
+                          Lastname="Alexander",
+                            Address="Adreji, 110",
+                            TelephoneNo="38740189"},
               new Member { Surname="Meredith", 
-                          Lastname="Alonso" },
+                          Lastname="Alonso",
+                            Address="akljdsfer 3455",
+                            TelephoneNo="9348957"},
               new Member { Surname="Arturo", 
-                          Lastname="Anand" },
+                          Lastname="Anand",
+                           Address = "kdjfad,4859",
+                           TelephoneNo = "39859458"},
                 new Member { Surname="Gytis", 
-                          Lastname="Barzdukasr" }
+                          Lastname="Barzdukasr",
+                             Address = "jfadöd, 8493",
+                             TelephoneNo = "487524075"
+                }
             ); 
                    
 
         
             DateTime currentTime = DateTime.Now;
             context.Vehicles.AddOrUpdate(
-                new Vehicle {RegistrationNumber= "afg134", Color ="Red", Brand="Volvo", Model="240dl", WheelCount=4, ParkTime = currentTime, },
-                new Vehicle { RegistrationNumber = "afg553", Color = "Blue", Brand = "BMV", Model = "4332dl", WheelCount = 4, ParkTime = currentTime },
-                new Vehicle { RegistrationNumber = "faf134", Color = "Black", Brand = "Renault", Model = "240dl", WheelCount = 4, ParkTime = currentTime },
-                new Vehicle { RegistrationNumber = "dff545", Color = "Red", Brand = "Saab", Model = "ae45dl", WheelCount = 6, ParkTime = currentTime },
-                new Vehicle { RegistrationNumber = "af764", Color = "White", Brand = "Volvo", Model = "240dl", WheelCount = 4, ParkTime = currentTime }
+                new Vehicle {RegistrationNumber= "afg134", Color ="Red", Brand="Volvo", Model="240dl", WheelCount=4, ParkTime = currentTime, MemberId=1,VehicleTypeId=1 },
+                new Vehicle { RegistrationNumber = "afg553", Color = "Blue", Brand = "BMV", Model = "4332dl", WheelCount = 4, ParkTime = currentTime, MemberId = 2, VehicleTypeId = 3 },
+                new Vehicle { RegistrationNumber = "faf134", Color = "Black", Brand = "Renault", Model = "240dl", WheelCount = 4, ParkTime = currentTime, MemberId = 3, VehicleTypeId = 5 },
+                new Vehicle { RegistrationNumber = "dff545", Color = "Red", Brand = "Saab", Model = "ae45dl", WheelCount = 6, ParkTime = currentTime, MemberId = 4, VehicleTypeId = 2 },
+                new Vehicle { RegistrationNumber = "af764", Color = "White", Brand = "Volvo", Model = "240dl", WheelCount = 4, ParkTime = currentTime, MemberId = 1, VehicleTypeId = 4 }
                 );
             context.VehicleTypes.AddOrUpdate(
                 new VehicleType{Type="Car"},

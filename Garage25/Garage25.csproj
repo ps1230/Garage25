@@ -118,6 +118,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MembersController.cs" />
     <Compile Include="Controllers\VehiclesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -133,6 +134,14 @@
     <Compile Include="Migrations\201601291307528_AddedForeignKey.cs" />
     <Compile Include="Migrations\201601291307528_AddedForeignKey.Designer.cs">
       <DependentUpon>201601291307528_AddedForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601291415262_add MemberID and VehicleTypeId.cs" />
+    <Compile Include="Migrations\201601291415262_add MemberID and VehicleTypeId.Designer.cs">
+      <DependentUpon>201601291415262_add MemberID and VehicleTypeId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601291430553_More info for Member.cs" />
+    <Compile Include="Migrations\201601291430553_More info for Member.Designer.cs">
+      <DependentUpon>201601291430553_More info for Member.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\GarageContext.cs" />
@@ -184,6 +193,11 @@
     <Content Include="Views\Vehicles\Details.cshtml" />
     <Content Include="Views\Vehicles\Edit.cshtml" />
     <Content Include="Views\Vehicles\Index.cshtml" />
+    <Content Include="Views\Members\Create.cshtml" />
+    <Content Include="Views\Members\Delete.cshtml" />
+    <Content Include="Views\Members\Details.cshtml" />
+    <Content Include="Views\Members\Edit.cshtml" />
+    <Content Include="Views\Members\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -204,6 +218,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201601291307528_AddedForeignKey.resx">
       <DependentUpon>201601291307528_AddedForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601291415262_add MemberID and VehicleTypeId.resx">
+      <DependentUpon>201601291415262_add MemberID and VehicleTypeId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601291430553_More info for Member.resx">
+      <DependentUpon>201601291430553_More info for Member.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
