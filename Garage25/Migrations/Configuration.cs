@@ -32,6 +32,9 @@ namespace Garage25.Migrations
                 new Member { Surname="Gytis", 
                           Lastname="Barzdukasr" }
             ); 
+                   
+
+        
             DateTime currentTime = DateTime.Now;
             context.Vehicles.AddOrUpdate(
                 new Vehicle {RegistrationNumber= "afg134", Color ="Red", Brand="Volvo", Model="240dl", WheelCount=4, ParkTime = currentTime},
