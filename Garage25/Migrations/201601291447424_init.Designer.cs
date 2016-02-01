@@ -7,13 +7,13 @@ namespace Garage25.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddedForeignKey : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedForeignKey));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201601291307528_AddedForeignKey"; }
+            get { return "201601291447424_init"; }
         }
         
         string IMigrationMetadata.Source

@@ -3,7 +3,7 @@ namespace Garage25.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -14,6 +14,8 @@ namespace Garage25.Migrations
                         MemberId = c.Int(nullable: false, identity: true),
                         Surname = c.String(),
                         Lastname = c.String(),
+                        Address = c.String(),
+                        TelephoneNo = c.String(),
                     })
                 .PrimaryKey(t => t.MemberId);
             
@@ -22,19 +24,20 @@ namespace Garage25.Migrations
                 c => new
                     {
                         VehicleId = c.Int(nullable: false, identity: true),
+                        RegistrationNumber = c.String(),
                         Color = c.String(),
                         Brand = c.String(),
                         Model = c.String(),
-                        NumberOfWheels = c.Int(nullable: false),
-                        ParkingTime = c.DateTime(nullable: false),
-                        VehicleType_VehicleTypeId = c.Int(),
-                        Member_MemberId = c.Int(),
+                        WheelCount = c.Int(nullable: false),
+                        ParkTime = c.DateTime(nullable: false),
+                        VehicleTypeId = c.Int(nullable: false),
+                        MemberId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.VehicleId)
-                .ForeignKey("dbo.VehicleTypes", t => t.VehicleType_VehicleTypeId)
-                .ForeignKey("dbo.Members", t => t.Member_MemberId)
-                .Index(t => t.VehicleType_VehicleTypeId)
-                .Index(t => t.Member_MemberId);
+                .ForeignKey("dbo.Members", t => t.MemberId, cascadeDelete: true)
+                .ForeignKey("dbo.VehicleTypes", t => t.VehicleTypeId, cascadeDelete: true)
+                .Index(t => t.VehicleTypeId)
+                .Index(t => t.MemberId);
             
             CreateTable(
                 "dbo.VehicleTypes",
@@ -49,10 +52,10 @@ namespace Garage25.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Vehicles", "Member_MemberId", "dbo.Members");
-            DropForeignKey("dbo.Vehicles", "VehicleType_VehicleTypeId", "dbo.VehicleTypes");
-            DropIndex("dbo.Vehicles", new[] { "Member_MemberId" });
-            DropIndex("dbo.Vehicles", new[] { "VehicleType_VehicleTypeId" });
+            DropForeignKey("dbo.Vehicles", "VehicleTypeId", "dbo.VehicleTypes");
+            DropForeignKey("dbo.Vehicles", "MemberId", "dbo.Members");
+            DropIndex("dbo.Vehicles", new[] { "MemberId" });
+            DropIndex("dbo.Vehicles", new[] { "VehicleTypeId" });
             DropTable("dbo.VehicleTypes");
             DropTable("dbo.Vehicles");
             DropTable("dbo.Members");

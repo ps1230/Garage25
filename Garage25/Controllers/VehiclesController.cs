@@ -16,6 +16,32 @@ namespace Garage25.Controllers
         private GarageContext db = new GarageContext();
 
         // GET: Vehicles
+        public ActionResult Index()
+        {
+        //public ActionResult Index(string searchString, string searchString2)
+        //{
+        //    var vehicles = from s in db.Vehicles
+        //                   select s;
+
+        //    if (!String.IsNullOrEmpty(searchString) && String.IsNullOrEmpty(searchString2))
+        //    {
+        //        vehicles = vehicles.Where(s => s.RegistrationNumber.Contains(searchString));
+        //    }
+        //    else if (!String.IsNullOrEmpty(searchString2) && String.IsNullOrEmpty(searchString))
+        //    {
+        //        vehicles = vehicles.Where(s => (s.VehicleType.Type.Contains(searchString2)));
+        //    }
+        //    else if (!String.IsNullOrEmpty(searchString) && !String.IsNullOrEmpty(searchString2))
+        //    {
+        //        vehicles = vehicles.Where(s => s.RegistrationNumber.Contains(searchString)
+        //            && (s.VehicleType.Type.Contains(searchString2)));
+        //    }
+
+            ViewBag.TypeId = new SelectList(db.VehicleTypes, "VehicleTypeId", "Type");            
+            return View(db.Vehicles.ToList());
+        }
+
+        [HttpPost]
         public ActionResult Index(string searchString, string searchString2)
         {
             var vehicles = from s in db.Vehicles
@@ -34,10 +60,9 @@ namespace Garage25.Controllers
                 vehicles = vehicles.Where(s => s.RegistrationNumber.Contains(searchString)
                     && (s.VehicleType.Type.Contains(searchString2)));
             }
-            
+
             return View(vehicles.ToList());
         }
-
         // GET: Vehicles/Details/5
         public ActionResult Details(int? id)
         {
@@ -56,15 +81,24 @@ namespace Garage25.Controllers
         // GET: Vehicles/Create
         public ActionResult Create()
         {
-            //var members = db.Members.ToList();
-            //List<SelectListItem> list = new List<SelectListItem>();
-            //foreach (var item in members)   
-            //{
-		        
-            //}
+            List<SelectListItem> list = new List<SelectListItem>();
+            var dbList = db.Members.ToList();
+            foreach (var item in dbList)
+            {
+                list.Add(new SelectListItem
+                {
+                    Value = item.MemberId.ToString(),
+                    Text = (item.Surname + " " + item.Lastname)
+                });
+            }
+                //List<SelectListItem> list =
+                //db.Members.Select(i => new SelectListItem{
+                //    Text = i.MemberId.ToString(),
+                //    Value = (i.Surname + " " + i.Lastname)
+                //});
 
-            //ViewBag.Nameid = new SelectList();
-            //ViewBag.TypeId = new SelectList(db.VehicleTypes, "VehicleTypeId", "Type");
+            ViewBag.Nameid = list;
+            ViewBag.TypeId = new SelectList(db.VehicleTypes, "VehicleTypeId", "Type");
                 
             return View();
         }
@@ -74,7 +108,7 @@ namespace Garage25.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "VehicleId,Color,Brand,Model,NumberOfWheels,ParkingTime")] Vehicle vehicle)
+        public ActionResult Create([Bind(Include = "VehicleId,Color,Brand,Model,WheelCount,ParkTime,MemberId,VehicleTypeId")] Vehicle vehicle)
         {
             if (ModelState.IsValid)
             {
@@ -107,7 +141,7 @@ namespace Garage25.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "VehicleId,Color,Brand,Model,NumberOfWheels,ParkingTime")] Vehicle vehicle)
+        public ActionResult Edit([Bind(Include = "VehicleId,Color,Brand,Model,WheelCount,ParkTime,MemberId,VehicleTypeId")] Vehicle vehicle)
         {
             if (ModelState.IsValid)
             {

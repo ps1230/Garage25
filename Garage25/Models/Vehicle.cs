@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -14,7 +15,9 @@ namespace Garage25.Model
         public string Model { get; set; }
         public int WheelCount { get; set; }
         public DateTime ParkTime { get; set; }
+        [Display(Name="Vehicle Type")]
         public int VehicleTypeId { get; set; }
+        [Display(Name="Member")]
         public int MemberId { get; set; }
 
         public virtual Member Member { get; set; }

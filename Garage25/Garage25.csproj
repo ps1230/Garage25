@@ -123,25 +123,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201601290844041_InitialCreate.cs" />
-    <Compile Include="Migrations\201601290844041_InitialCreate.Designer.cs">
-      <DependentUpon>201601290844041_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601291043478_element changes.cs" />
-    <Compile Include="Migrations\201601291043478_element changes.Designer.cs">
-      <DependentUpon>201601291043478_element changes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601291307528_AddedForeignKey.cs" />
-    <Compile Include="Migrations\201601291307528_AddedForeignKey.Designer.cs">
-      <DependentUpon>201601291307528_AddedForeignKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601291415262_add MemberID and VehicleTypeId.cs" />
-    <Compile Include="Migrations\201601291415262_add MemberID and VehicleTypeId.Designer.cs">
-      <DependentUpon>201601291415262_add MemberID and VehicleTypeId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601291430553_More info for Member.cs" />
-    <Compile Include="Migrations\201601291430553_More info for Member.Designer.cs">
-      <DependentUpon>201601291430553_More info for Member.cs</DependentUpon>
+    <Compile Include="Migrations\201601291447424_init.cs" />
+    <Compile Include="Migrations\201601291447424_init.Designer.cs">
+      <DependentUpon>201601291447424_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\GarageContext.cs" />
@@ -210,20 +194,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201601290844041_InitialCreate.resx">
-      <DependentUpon>201601290844041_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601291043478_element changes.resx">
-      <DependentUpon>201601291043478_element changes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601291307528_AddedForeignKey.resx">
-      <DependentUpon>201601291307528_AddedForeignKey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601291415262_add MemberID and VehicleTypeId.resx">
-      <DependentUpon>201601291415262_add MemberID and VehicleTypeId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601291430553_More info for Member.resx">
-      <DependentUpon>201601291430553_More info for Member.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201601291447424_init.resx">
+      <DependentUpon>201601291447424_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
