@@ -9,11 +9,13 @@ namespace Garage25.Model
     public class Vehicle
     {
         public int VehicleId { get; set; }
+        [Display(Name = "Registration Number")]
         public string RegistrationNumber { get; set; }
         public string Color { get; set; }
         public string Brand { get; set; }
         public string Model { get; set; }
         public int WheelCount { get; set; }
+        [Display(Name = "Parked Since")]
         public DateTime ParkTime { get; set; }
         [Display(Name="Vehicle Type")]
         public int VehicleTypeId { get; set; }

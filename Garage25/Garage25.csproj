@@ -132,7 +132,6 @@
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\PresentationModel.cs" />
     <Compile Include="Models\Vehicle.cs" />
-    <Compile Include="Models\VehicleModel.cs" />
     <Compile Include="Models\VehicleType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
