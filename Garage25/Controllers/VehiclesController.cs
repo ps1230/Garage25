@@ -44,6 +44,7 @@ namespace Garage25.Controllers
         [HttpPost]
         public ActionResult Index(string searchString, string searchString2)
         {
+            searchString2 = ViewBag.TypeId;
             var vehicles = from s in db.Vehicles
                            select s;
 

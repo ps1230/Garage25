@@ -19,6 +19,12 @@
         Find by VehicleType: @Html.TextBox("SearchString2")
         <input type="submit" value="Search" />
     </p>
+    
+        @*<div class="col-md-10">
+            @Html.DropDownListFor(model => model.VehicleTypeId, (SelectList)ViewBag.TypeId, "- Select Type -", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.VehicleTypeId, "", new { @class = "text-danger" })
+        </div>*@
+    
 }
 
 <table class="table">
