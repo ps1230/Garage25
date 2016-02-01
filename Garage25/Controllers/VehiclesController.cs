@@ -18,33 +18,16 @@ namespace Garage25.Controllers
         // GET: Vehicles
         public ActionResult Index()
         {
-        //public ActionResult Index(string searchString, string searchString2)
-        //{
-        //    var vehicles = from s in db.Vehicles
-        //                   select s;
-
-        //    if (!String.IsNullOrEmpty(searchString) && String.IsNullOrEmpty(searchString2))
-        //    {
-        //        vehicles = vehicles.Where(s => s.RegistrationNumber.Contains(searchString));
-        //    }
-        //    else if (!String.IsNullOrEmpty(searchString2) && String.IsNullOrEmpty(searchString))
-        //    {
-        //        vehicles = vehicles.Where(s => (s.VehicleType.Type.Contains(searchString2)));
-        //    }
-        //    else if (!String.IsNullOrEmpty(searchString) && !String.IsNullOrEmpty(searchString2))
-        //    {
-        //        vehicles = vehicles.Where(s => s.RegistrationNumber.Contains(searchString)
-        //            && (s.VehicleType.Type.Contains(searchString2)));
-        //    }
-
-            ViewBag.TypeId = new SelectList(db.VehicleTypes, "VehicleTypeId", "Type");            
+            ViewBag.TypeId = new SelectList(db.VehicleTypes, "Type", "Type");
+            ViewBag.SearchString2 = "";
             return View(db.Vehicles.ToList());
         }
 
         [HttpPost]
         public ActionResult Index(string searchString, string searchString2)
         {
-            searchString2 = ViewBag.TypeId;
+            //string value = typeId;
+            //string result = ViewBag["SearchString2"];
             var vehicles = from s in db.Vehicles
                            select s;
 
@@ -62,8 +45,11 @@ namespace Garage25.Controllers
                     && (s.VehicleType.Type.Contains(searchString2)));
             }
 
+            ViewBag.TypeId = new SelectList(db.VehicleTypes, "Type", "Type");
+            ViewBag.SearchString2 = "";
             return View(vehicles.ToList());
         }
+
         // GET: Vehicles/Details/5
         public ActionResult Details(int? id)
         {
@@ -92,11 +78,6 @@ namespace Garage25.Controllers
                     Text = (item.Surname + " " + item.Lastname)
                 });
             }
-                //List<SelectListItem> list =
-                //db.Members.Select(i => new SelectListItem{
-                //    Text = i.MemberId.ToString(),
-                //    Value = (i.Surname + " " + i.Lastname)
-                //});
 
             ViewBag.Nameid = list;
             ViewBag.TypeId = new SelectList(db.VehicleTypes, "VehicleTypeId", "Type");
