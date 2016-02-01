@@ -1,4 +1,4 @@
-﻿@model Garage25.Model.VehicleModel
+﻿@model Garage25.Model.Vehicle
 
 @{
     ViewBag.Title = "Edit";
@@ -17,6 +17,21 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.VehicleId)
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.VehicleType.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.VehicleType.Type, new { @readonly = "readonly", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.VehicleType.Type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RegistrationNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.RegistrationNumber, new { @readonly = "readonly", @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.RegistrationNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <div class="form-group">
             @Html.LabelFor(model => model.Color, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -42,7 +57,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model..NumberOfWheels, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.WheelCount, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.WheelCount, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.WheelCount, "", new { @class = "text-danger" })
